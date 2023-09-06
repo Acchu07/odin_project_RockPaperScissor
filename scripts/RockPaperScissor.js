@@ -1,27 +1,8 @@
-
+// Modify to appealing visuals later
 function getComputerChoice(){
     const checkValue = Math.floor(Math.random() * 3);
     return checkValue === 0 ? "rock":(checkValue === 1)? "scissors": "paper";
 }
-
-function getPlayerChoice(event){ 
-    let playerChoice = prompt("Choose between Rock Paper and Scissor. Random will be assigned if let empty or something else is chosen");
-    if(playerChoice === null){
-        playerChoice = "rock";
-    }
-    playerChoice = playerChoice.toLowerCase();
-    switch(playerChoice){
-        case "rock":
-            return "rock";
-        case "paper":
-            return "paper";
-        case "scissor":
-            return "scissor";
-        default:
-            return "rock";
-    }
-}
-
 
 function resetScore(){
     playerScore = 0;
@@ -32,7 +13,7 @@ function resetScore(){
 }
 
 function getWinner(){
-    // Modify to appealing visuals later
+    
     if(playerScore === computerScore){
         return alert('Draw');
     }
@@ -40,7 +21,6 @@ function getWinner(){
 }
 
 function updateScoreWebsite(){
-    console.log(round);
     const currentRound = document.querySelector('#round');
     const domPlayerScore = document.querySelector('#player-score');
     const domComputerScore = document.querySelector('#computer-score');
@@ -50,6 +30,7 @@ function updateScoreWebsite(){
     domPlayerScore.textContent = `Player Score : ${playerScore}`;
     domComputerScore.textContent = `Cat Score: ${computerScore}`;
     domDraw.textContent = `Draws between the Cat and the Player: ${draw}`;
+    console.log(`Amount of time update score website is called ${round}`);
 }
 
 function updateScore(){
@@ -117,9 +98,6 @@ console.log(round);
 const playerChoiceRock = document.querySelector('#rock');
 const playerChoicePaper = document.querySelector('#paper');
 const playerChoiceScissor = document.querySelector('#scissor');
-
-
-
 
 playerChoiceRock.addEventListener('click',playRound);
 playerChoicePaper.addEventListener('click',playRound);
