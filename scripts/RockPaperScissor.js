@@ -1,10 +1,10 @@
 
 function getComputerChoice(){
     const checkValue = Math.floor(Math.random() * 3);
-    return checkValue === 0 ? "rock":(checkValue === 1)? "scissors": "paper"; // Returns Rock paper or scissor based on a random value between 0 to 2
+    return checkValue === 0 ? "rock":(checkValue === 1)? "scissors": "paper";
 }
 
-function getPlayerChoice(event){ // rock is default if prompt is empty or random string is entered
+function getPlayerChoice(event){ 
     let playerChoice = prompt("Choose between Rock Paper and Scissor. Random will be assigned if let empty or something else is chosen");
     if(playerChoice === null){
         playerChoice = "rock";
@@ -23,26 +23,41 @@ function getPlayerChoice(event){ // rock is default if prompt is empty or random
 }
 
 
-function Win(){
+function resetScore(){
+    playerScore = 0;
+    computerScore = 0;
+    round = 0;
+    draw = 0;
+    updateScoreWebsite();
+}
 
+function getWinner(){
+    // Modify to appealing visuals later
+    if(playerScore === computerScore){
+        return alert('Draw');
+    }
+    return (playerScore > computerScore) ? alert('Player Wins') : alert('Cat Wins');
+}
+
+function updateScoreWebsite(){
+    console.log(round);
+    const currentRound = document.querySelector('#round');
+    const domPlayerScore = document.querySelector('#player-score');
+    const domComputerScore = document.querySelector('#computer-score');
+    const domDraw = document.querySelector('#draws');
+    
+    currentRound.textContent = `Round Number: ${round}`;
+    domPlayerScore.textContent = `Player Score : ${playerScore}`;
+    domComputerScore.textContent = `Cat Score: ${computerScore}`;
+    domDraw.textContent = `Draws between the Cat and the Player: ${draw}`;
 }
 
 function updateScore(){
-    const domPlayerScore = document.querySelector('#player-score');
-    const domComputerScore = document.querySelector('#computer-score');
-
-    domPlayerScore.textContent = `Player Score : ${playerScore}`;
-    domComputerScore.textContent = `Cat Score: ${computerScore}`;
-
-    if(playerScore === 5 || computerScore === 5){
-        //reset score
-        if(playerScore === 5){
-            //call function to say player wins
-        }
-        else
-        {
-            //call function to say computer wins
-        }
+    round++;
+    updateScoreWebsite();
+    if(round === 5){
+        getWinner();
+        resetScore();
     }
 }
 
@@ -51,8 +66,7 @@ function playRound(choice){
     const playerChoice = choice.target.id;
     const computerChoice = getComputerChoice();
     if(computerChoice === playerChoice){
-        computerScore++;
-        playerScore++;
+        draw++;
         updateScore();
         return;
     }
@@ -94,38 +108,16 @@ function playRound(choice){
     }
 }
 
-
-
-function playGame(round){
-    // const computerChoice = getComputerChoice();
-    // const playerChoice = getPlayerChoice();
-    
-    const checkValue = playRound(computerChoice,playerChoice);
-    switch(checkValue){
-        case 1:
-            console.log("Player Wins");
-            return ++round;
-
-        case 3:
-            console.log("Draw");
-            return ++round;
-        
-        case 0:
-            console.log("Computer Wins");
-            return ++round;
-
-    }
-   //(checkValue === 1)?console.log("Player Wins"):(checkValue === 7)?console.log("Draw"):console.log("Computer Wins");
-}
-
 let round = 0;
 let playerScore = 0;
 let computerScore = 0;
+let draw = 0;
 console.log(round);
 
 const playerChoiceRock = document.querySelector('#rock');
 const playerChoicePaper = document.querySelector('#paper');
 const playerChoiceScissor = document.querySelector('#scissor');
+
 
 
 
