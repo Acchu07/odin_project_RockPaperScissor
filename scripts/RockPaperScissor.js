@@ -2,7 +2,7 @@
 function getComputerChoice(){
     if(round > 4) return;
     const checkValue = Math.floor(Math.random() * 3);
-    return checkValue === 0 ? "rock":(checkValue === 1)? "scissors": "paper";
+    return checkValue === 0 ? "rock":(checkValue === 1)? "scissor": "paper";
 }
 
 function resetScore()
@@ -62,6 +62,7 @@ function updateScore(){
 }
 
 function playRound(choice){
+    if(round > 4) return;
     const playerChoice = choice.target.id;
     document.querySelector('.player-played').textContent = playerChoice.toUpperCase();
     const computerChoice = getComputerChoice();
