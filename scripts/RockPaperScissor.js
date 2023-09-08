@@ -5,43 +5,55 @@ function getComputerChoice(){
 }
 
 function resetScore(){
-    playerScore = 0;
-    computerScore = 0;
-    round = 0;
-    draw = 0;
-    updateScoreWebsite();
-}
-
-function getWinner(){
-    
-    if(playerScore === computerScore){
-        return alert('Draw');
+        //if(round < 5) return;
+        playerScore = 0;
+        computerScore = 0;
+        round = 0;
+        draw = 0;
+        document.querySelector('img').classList.remove('show-when-win')
+        updateScoreWebsite();
     }
-    return (playerScore > computerScore) ? alert('Player Wins') : alert('Cat Wins');
-}
-
-function updateScoreWebsite(){
+    
+    function getWinner(){
+        const displayWinner = document.querySelector('#display-winner');  
+        if(playerScore === computerScore){
+            displayWinner.textContent = 'Draw';
+            return;
+        }
+        // (playerScore > computerScore) ? displayWinner.textContent = 'Player Wins' : displayWinner.textContent = 'Cat Wins';
+        if(playerScore > computerScore){
+            displayWinner.textContent = 'Player Wins';
+            return;
+        }
+        else
+        {
+            displayWinner.textContent = 'Cat Wins';
+            document.querySelector('img').classList.add('show-when-win')
+        }
+    }
+    
+    function updateScoreWebsite(){
     const currentRound = document.querySelector('#round');
     const domPlayerScore = document.querySelector('#player-score');
     const domComputerScore = document.querySelector('#computer-score');
     const domDraw = document.querySelector('#draws');
-    
+        
+    const displayWinner = document.querySelector('#display-winner');
+    displayWinner.textContent = `Winner : UNDECIDED`;
     currentRound.textContent = `Round Number: ${round}`;
     domPlayerScore.textContent = `Player Score : ${playerScore}`;
     domComputerScore.textContent = `Cat Score: ${computerScore}`;
     domDraw.textContent = `Draws between the Cat and the Player: ${draw}`;
-    console.log(`Amount of time update score website is called ${round}`);
 }
 
 function updateScore(){
+    if(round > 4) return;
     round++;
     updateScoreWebsite();
     if(round === 5){
         getWinner();
-        resetScore();
     }
 }
-
 
 function playRound(choice){
     const playerChoice = choice.target.id;
@@ -93,12 +105,13 @@ let round = 0;
 let playerScore = 0;
 let computerScore = 0;
 let draw = 0;
-console.log(round);
 
 const playerChoiceRock = document.querySelector('#rock');
 const playerChoicePaper = document.querySelector('#paper');
 const playerChoiceScissor = document.querySelector('#scissor');
+const resetGame = document.querySelector('#reset-game');
 
 playerChoiceRock.addEventListener('click',playRound);
 playerChoicePaper.addEventListener('click',playRound);
 playerChoiceScissor.addEventListener('click',playRound);
+resetGame.addEventListener('click', resetScore);

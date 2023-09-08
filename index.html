@@ -4,21 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./styles/style.css">
     <script src="./scripts/RockPaperScissor.js" defer></script>
 </head>
 <body>
+    <img src="./img/cat-323262_1280.jpg" alt="lazy cat licking paws">
     <div class="rock-paper-scissor">
         <button id="rock">Rock</button>
         <button id="scissor">Scissor</button>
         <button id="paper">Paper</button>
     </div>
+    <h2 class="best-of-five">Best of Five Rounds </h2>
     <div class="results">
-        <h2 class="best-of-five">Round </h2>
-        <p id="round">Number</p>
-        <h2>Score</h2>
+        <p id="round">Round Number : </p>
+        <button id="reset-game"> Reset Game?? </button>
+    </div>
+    <div>
+        <h1 id="display-winner"></h1>
+    </div>
+    <h2>ROUND TRACKER</h2>
+    <div class="two-end">
         <p id="player-score">Player Score: </p>
-        <p id="computer-score">Computer Score: </p>
         <p id="draws">Draws between Computer and Player</p>
+        <p id="computer-score">Cat Score: </p>
     </div>
 </body>
 </html>
