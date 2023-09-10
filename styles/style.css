@@ -92,35 +92,3 @@ button{
     color: pink;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
-/*
-.results{
-    display:flex;
-    width: 100vh;
-    justify-content: space-between;
-}
-
-.rock-paper-scissor, 
-.two-end{
-    display: flex;
-    width: 100vh;
-    justify-content: space-between;
-}
-
-img{
-    display: none;
-}
-
-.show-when-win{
-    display: block;
-    border-radius: 10%;
-
-}
-
-button{
-    width: 100px;
-}
-
-h2{
-    margin: 0px;
-} */

@@ -1,4 +1,3 @@
-// Modify to appealing visuals later
 function getComputerChoice(){
     if(round > 4) return;
     const checkValue = Math.floor(Math.random() * 3);
@@ -7,7 +6,6 @@ function getComputerChoice(){
 
 function resetScore()
 {
-        //if(round < 5) return;
         playerScore = 0;
         computerScore = 0;
         round = 0;
