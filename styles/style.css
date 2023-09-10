@@ -83,6 +83,16 @@ button{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.player-played{
+    color: orange;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.computer-played{
+    color: pink;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 /*
 .results{
     display:flex;

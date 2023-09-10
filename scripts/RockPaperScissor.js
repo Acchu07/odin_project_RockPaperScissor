@@ -46,7 +46,7 @@ function updateScoreWebsite()
     currentRound.textContent = `Round Number: ${round}`;
     domPlayerScore.textContent = `Your Current Score : ${playerScore}`;
     domComputerScore.textContent = `Opponent Current Score: ${computerScore}`;
-    domDraw.textContent = `Draws between You and The Opponent: ${draw}`;
+    domDraw.textContent = `Current Draws between You and The Opponent: ${draw}`;
 }
 
 function updateScore(){
@@ -63,10 +63,10 @@ function playRound(choice){
     const playerChoice = choice.target.id;
     let displayedPlayerChoice;
     let displayedComputerChoice;
-    (playerChoice === 'rock') ? displayedPlayerChoice = 'Fire': (playerChoice === 'scissor') ? displayedPlayerChoice = 'Water' : displayedPlayerChoice = 'Leaf';
+    (playerChoice === 'rock') ? displayedPlayerChoice = 'Fire': (playerChoice === 'scissor') ? displayedPlayerChoice = 'Leaf' : displayedPlayerChoice = 'Water';
     document.querySelector('.player-played').textContent = displayedPlayerChoice;
     const computerChoice = getComputerChoice();
-    (computerChoice === 'rock') ? displayedComputerChoice = 'Fire': (displayedComputerChoice === 'scissor') ? displayedComputerChoice = 'Water' : displayedComputerChoice = 'Leaf';
+    (computerChoice === 'rock') ? displayedComputerChoice = 'Fire': (computerChoice === 'scissor') ? displayedComputerChoice = 'Leaf' : displayedComputerChoice = 'Water';
     document.querySelector('.computer-played').textContent = displayedComputerChoice;
     if(computerChoice === playerChoice){
         draw++;
