@@ -12,7 +12,6 @@ function resetScore()
         computerScore = 0;
         round = 0;
         draw = 0;
-        document.querySelector('img').classList.remove('show-when-win')
         updateScoreWebsite();
 }
     
@@ -24,16 +23,14 @@ function getWinner()
         displayWinner.textContent = 'Draw';
         return;
     }
-        // (playerScore > computerScore) ? displayWinner.textContent = 'Player Wins' : displayWinner.textContent = 'Cat Wins';
     if(playerScore > computerScore)
     {
-        displayWinner.textContent = 'Player Wins';
+        displayWinner.textContent = 'You Win';
         return;
      }
     else
     {
-            displayWinner.textContent = 'Cat Wins';
-            document.querySelector('img').classList.add('show-when-win')
+            displayWinner.textContent = 'Opponent Wins';
     }
 }
     
@@ -45,11 +42,11 @@ function updateScoreWebsite()
     const domDraw = document.querySelector('#draws');
     
     const displayWinner = document.querySelector('#display-winner');
-    displayWinner.textContent = `Winner : UNDECIDED`;
+    displayWinner.textContent = "";
     currentRound.textContent = `Round Number: ${round}`;
-    domPlayerScore.textContent = `Player Score : ${playerScore}`;
-    domComputerScore.textContent = `Cat Score: ${computerScore}`;
-    domDraw.textContent = `Draws between the Cat and the Player: ${draw}`;
+    domPlayerScore.textContent = `Your Current Score : ${playerScore}`;
+    domComputerScore.textContent = `Opponent Current Score: ${computerScore}`;
+    domDraw.textContent = `Draws between You and The Opponent: ${draw}`;
 }
 
 function updateScore(){
@@ -64,9 +61,13 @@ function updateScore(){
 function playRound(choice){
     if(round > 4) return;
     const playerChoice = choice.target.id;
-    document.querySelector('.player-played').textContent = playerChoice.toUpperCase();
+    let displayedPlayerChoice;
+    let displayedComputerChoice;
+    (playerChoice === 'rock') ? displayedPlayerChoice = 'Fire': (playerChoice === 'scissor') ? displayedPlayerChoice = 'Water' : displayedPlayerChoice = 'Leaf';
+    document.querySelector('.player-played').textContent = displayedPlayerChoice;
     const computerChoice = getComputerChoice();
-    document.querySelector('.computer-played').textContent = computerChoice.toUpperCase();
+    (computerChoice === 'rock') ? displayedComputerChoice = 'Fire': (displayedComputerChoice === 'scissor') ? displayedComputerChoice = 'Water' : displayedComputerChoice = 'Leaf';
+    document.querySelector('.computer-played').textContent = displayedComputerChoice;
     if(computerChoice === playerChoice){
         draw++;
         updateScore();

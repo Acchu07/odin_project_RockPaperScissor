@@ -1,13 +1,89 @@
 body{
-    background-color: black;
-    color: orange;
+    background-color: white;
+    color: black;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
 }
 
+img{
+    height: 50px;
+    width: 50px;
+}
+
+.fire{
+    color: red;
+}
+.water{
+    color:blue;
+}
+.leaf{
+    color:green;
+}
+
+button{
+    height: 75px;
+    width: 70px;
+    background-size: 70px 70px;
+    background-repeat: no-repeat;
+    padding: 0px;
+}
+
+#rock{
+    background-image: url(../img/vecteezy_fire-sign-fire-flame-icon-isolated-on-white-background_.jpg);
+
+}
+
+#scissor{
+    background-image: url(../img/4-04.jpg);
+}
+
+#paper{
+    background-image: url(../img/vecteezy_leaf-icon-vector_7202593.jpg);
+}
+
+.explain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rock-paper-scissor{
+    display:flex;
+    justify-content: space-evenly;
+    margin: 20px 0px;
+}
+
+.results{
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+}
+
+.external-box{
+    display:flex;
+    justify-content: space-between;
+    padding: 25px;
+    border: 1px solid black;
+}
+
+.position{
+    align-self: center;
+    padding: 50px;
+}
+
+.credits{
+    align-self: flex-end;
+}
+
+.two-end{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/*
 .results{
     display:flex;
     width: 100vh;
@@ -37,4 +113,4 @@ button{
 
 h2{
     margin: 0px;
-}
+} */

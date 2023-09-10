@@ -8,29 +8,44 @@
     <script src="./scripts/RockPaperScissor.js" defer></script>
 </head>
 <body>
-    <img src="./img/cat-323262_1280.jpg" alt="lazy cat licking paws">
-    <div class="rock-paper-scissor">
-        <button id="rock">Rock</button>
-        <button id="scissor">Scissor</button>
-        <button id="paper">Paper</button>
+    <div class="explain">
+        <h1> <span class="fire">Fire </span>|<span class="water"> Water </span>|<span class="leaf"> Leaf</span></h1>
+        <p>3 PokeTypes | 5 Rounds | 1 Outcome</p>
+        <p>
+            <span class="fire">Fire Beats Leaf</span> ||
+            <span class="water">Water Beats Fire</span> ||
+            <span class="leaf">Leaf Beats Water</span>
+        </p>
     </div>
-    <h2 class="best-of-five">Best of Five Rounds </h2>
+    <div class="rock-paper-scissor">
+        <button id="rock"></button> 
+        <button id="scissor"></button>
+        <button id="paper"></button>
+    </div>
+    <!-- <h2 class="best-of-five">Best of Five Rounds </h2> -->
+    <h2 class="position">---- Information Tracker ----</h2>
     <div class="results">
-        <p id="round">Round Number : </p>
+        <h2 id="round">Round Number : </h2>
         <button id="reset-game"> Reset Game?? </button>
+    </div>
+    <div class="external-box">
+        <div class="internal-box1">
+            <h2>You Chose: </h2>
+            <h3 class="player-played"></h3>
+            <h2>Opponent Chose: </h2>
+            <h3 class="computer-played"></h3>
+        </div>
+        <div class="two-end">
+            <p id="player-score">Your Score: </p>
+            <p id="computer-score">Opponent Score: </p>
+            <p id="draws">Draws between You and The Opponent</p>
+        </div>
     </div>
     <div>
         <h1 id="display-winner"></h1>
     </div>
-    <h2>TRACKER</h2>
-    <p>Player Played: </p>
-    <h3 class="player-played"></h3>
-    <p>Cat Played: </p>
-    <h3 class="computer-played"></h3>
-    <div class="two-end">
-        <p id="player-score">Player Score: </p>
-        <p id="draws">Draws between Computer and Player</p>
-        <p id="computer-score">Cat Score: </p>
+    <div class="credits">
+        <a href="https://www.vecteezy.com/?utm_source=vecteezy-download&utm_medium=license-info-pdf&utm_campaign=license-info-document" target="_blank" rel="noreferrer noopener">Icon Credits</a>
     </div>
 </body>
 </html>
